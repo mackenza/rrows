@@ -1,0 +1,15 @@
+{
+  "name": "rrows",
+  "version": "1.0.0",
+  "description": "simple web services client for RapidResponse for demo at Kinexions 2017",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew MacKenzie",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "soap": "^0.22.0"
+  }
+}

@@ -1,0 +1,1 @@
+const rrws = require('./rapidresponse')
