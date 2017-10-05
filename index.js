@@ -1,5 +1,4 @@
 require('dotenv').config();
-//const rrws = require('./rapidresponse.js');
 
 const RRServerURL = process.env.RRSERVERURL;
 const RRUsername = process.env.RRUSERNAME;
