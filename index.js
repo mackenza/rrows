@@ -4,17 +4,38 @@ const RRServerURL = process.env.RRSERVERURL;
 const RRUsername = process.env.RRUSERNAME;
 const RRPassword = process.env.RRPASSWORD;
 
+const paramsText = {
+    "title": "and yet another title",
+    "phone": "999-999-9999"
+}
+
 const soap = require('soap');
 
-function userMaint(url, username, password, action, params) {
+function userMaint(url, username, password, rrUserId, action, params) {
     const wsSecurity = new soap.WSSecurity(username, password);
+    const arguments = [
+        {
+            Key: "userId", 
+            Value: rrUserId
+        },
+        {
+            Key: "action", 
+            Value: action
+        },
+        {
+            Key: "params", 
+            Value: params
+        }
+    ];
     const sid = {
-        Name: "AM User Maint",
+        Name: "AM User Maint WS",
         Scope: "Public"
     }
     const esi = {
         Script: sid,
-        Arguments: null
+        Arguments: {
+            KeyValueOfstringstring: arguments
+        }
     }
     const args = {
         esi: esi
@@ -30,4 +51,5 @@ function userMaint(url, username, password, action, params) {
         });
     });
 }
-userMaint(RRServerURL, RRUsername, RRPassword, 'add', '');
+
+userMaint(RRServerURL, RRUsername, RRPassword, 'test1111', 'Edit', JSON.stringify(paramsText));
