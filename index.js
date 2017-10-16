@@ -1,13 +1,12 @@
 require('dotenv').config();
+const fs = require('fs');
 
 const RRServerURL = process.env.RRSERVERURL;
 const RRUsername = process.env.RRUSERNAME;
 const RRPassword = process.env.RRPASSWORD;
 
-const paramsText = {
-    "title": "and yet another title",
-    "phone": "999-999-9999"
-}
+const commandInputRaw = fs.readFileSync(process.argv[2]);
+const commandInput = JSON.parse(commandInputRaw);
 
 const soap = require('soap');
 
@@ -51,5 +50,5 @@ function userMaint(url, username, password, rrUserId, action, params) {
         });
     });
 }
-
-userMaint(RRServerURL, RRUsername, RRPassword, 'test1111', 'Edit', JSON.stringify(paramsText));
+console.log(commandInput.action);
+userMaint(RRServerURL, RRUsername, RRPassword, commandInput.userId, commandInput.action, JSON.stringify(commandInput.params));

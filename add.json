@@ -1,0 +1,21 @@
+{
+    "action": "Add",
+    "userId": "test5555",
+    "params": {
+        "userName": "test 5555",
+        "userEmail": "test5555@example.com",
+        "licenseType": "Internal",
+        "acctDisabled": "N",
+        "fwdToEmail": "N",
+        "title": "and yet another title",
+        "phone": "999-999-9999",
+        "notes": "created from WS",
+        "phone": "",
+        "mobile": "",
+        "fax": "",
+        "pager": "",
+        "location": "HQ",
+        "country": "CA",
+        "userGroups": "NewHire, Network Planners"
+    }
+}
